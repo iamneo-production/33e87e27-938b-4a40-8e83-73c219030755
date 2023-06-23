@@ -16,12 +16,12 @@ import tableData from "../components/TableData";
         <table className="table table-bordered table-hover shadow">
           <thead>
             <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Name</th>
-              <th scope="col">Description</th>
-              <th scope="col">Start Date</th>
-              <th scope="col">End Date</th>
-              <th scope="col">Actions</th>
+              <th scope="col" className="text-center">ID</th>
+              <th scope="col" className="text-center">Name</th>
+              <th scope="col" className="text-center">Description</th>
+              <th scope="col" className="text-center">Start Date</th>
+              <th scope="col" className="text-center">End Date</th>
+              <th scope="col" className="text-center">Actions</th>
             </tr>
           </thead>
           <tbody>
