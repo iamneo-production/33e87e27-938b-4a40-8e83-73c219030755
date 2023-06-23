@@ -18,7 +18,10 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
-          <Route path="/listprojects" element={<ListProjects/>} />
+          <Route
+            path="/listprojects"
+            element={<div style={{ backgroundColor: "white" }}><ListProjects /></div>}
+          />
         </Routes>
       </Router>
     </div>
