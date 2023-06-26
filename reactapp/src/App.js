@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ListProjects from './pages/listProjects';
-
+import TaskManagement from './components/Task';
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
             path="/listprojects"
             element={<div style={{ backgroundColor: "white" }}><ListProjects /></div>}
           />
+          <Route path="/taskmanagement" element={<TaskManagement/>}></Route>
         </Routes>
       </Router>
     </div>
