@@ -20,10 +20,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
-          <Route
-            path="/listprojects"
-            element={<div style={{ backgroundColor: "white" }}><ListProjects /></div>}
-          />
+          <Route path="/listprojects" element={<ListProjects />} />
         </Routes>
       </Router> */}
     </div>
