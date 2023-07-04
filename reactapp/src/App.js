@@ -5,7 +5,7 @@ import ForgotPassword from './components/forgotpassword';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import ListProjects from './pages/listProjects';
+import ListProjects from './components/pages/listProjects';
 
 
 function App() {
