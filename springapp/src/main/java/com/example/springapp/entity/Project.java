@@ -1,7 +1,5 @@
-public class project {
-    
-}
-package com.example.springapp.Entity;
+
+package com.example.springapp.entity;
 
 //import com.fasterxml.jackson.annotation.JsonBackReference;
 //import com.fasterxml.jackson.annotation.JsonIgnore;
