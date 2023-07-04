@@ -1,5 +1,7 @@
 
-package com.example.springapp.entity;
+
+
+package com.example.springapp.Entity;
 
 //import com.fasterxml.jackson.annotation.JsonBackReference;
 //import com.fasterxml.jackson.annotation.JsonIgnore;
