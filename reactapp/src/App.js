@@ -5,7 +5,7 @@ import ForgotPassword from './components/forgotpassword';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import ListProjects from './pages/listProjects';
+import ListProjects from './components/pages/listProjects';
 
 
 function App() {
@@ -13,15 +13,11 @@ function App() {
     <div>
       <Router>
       <ToastContainer/>
-        <Routes>
-         
+        <Routes> 
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
-          <Route
-            path="/listprojects"
-            element={<div style={{ backgroundColor: "white" }}><ListProjects /></div>}
-          />
+          <Route path="/listprojects" element={<ListProjects />} />
         </Routes>
       </Router>
     </div>
