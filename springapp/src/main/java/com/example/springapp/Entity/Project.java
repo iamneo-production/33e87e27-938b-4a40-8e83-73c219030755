@@ -1,6 +1,6 @@
-public class project {
-    
-}
+
+
+
 package com.example.springapp.Entity;
 
 //import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -13,7 +13,8 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-@Entity
+@Entity(name ="ProjectEntity")
+@Table(name ="ProjectEntity")
 public class Project implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
