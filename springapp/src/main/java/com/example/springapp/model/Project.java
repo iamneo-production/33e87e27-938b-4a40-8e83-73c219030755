@@ -7,7 +7,7 @@ import javax.persistence.Id;
 @Entity
 public class Project {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private Long projectId;
     private String name;
