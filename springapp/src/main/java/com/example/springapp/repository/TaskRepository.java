@@ -6,4 +6,5 @@ import com.example.springapp.model.Task;
 
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
+    // Additional methods can be defined here if needed
 }
