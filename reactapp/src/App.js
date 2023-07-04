@@ -13,8 +13,7 @@ function App() {
     <div>
       <Router>
       <ToastContainer/>
-        <Routes>
-         
+        <Routes> 
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />

@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 @RestController
-@RequestMapping("/tasks")
+
 @CrossOrigin(origins = "http://localhost:3000" ,maxAge =3600)
 public class ProjectController {
     private ProjectService ProjectService;
@@ -19,33 +19,33 @@ public class ProjectController {
     }
 
     // Get all tasks
-    @GetMapping("/getAll")
+    @GetMapping("/tasks")
     public ResponseEntity<List<Project>> getAllProjects() {
         List<Project> Projects =  ProjectService.getAllProjects();
         return new ResponseEntity<>(Projects, HttpStatus.OK);
     }
 
     // Create a new Project
-    @PostMapping("/add")
+    @PostMapping("/tasks/add")
     public ResponseEntity<Void> createProject(@RequestBody Project Project) {
         ProjectService.createProject(Project);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     // Get a Project by ID
-    @GetMapping("/{id}")
+    @GetMapping("tasks/{id}")
     public Project getProjectById(@PathVariable Long id) {
         return ProjectService.getProjectById(id);
     }
 
     // Update a Project
-    @PutMapping("/{id}")
+    @PutMapping("tasks/{id}")
     public Project updateProject(@PathVariable Long id, @RequestBody Project ProjectDetails) {
         return ProjectService.updateProject(id, ProjectDetails);
     }
 
     // Delete a Project
-    @DeleteMapping("/{id}")
+    @DeleteMapping("tasks/{id}")
     public void deleteProject(@PathVariable Long id) {
         ProjectService.deleteProject(id);
     }
