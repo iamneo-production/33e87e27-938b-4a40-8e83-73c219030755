@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import tableData from "../components/TableData";
+import tableData from "../TableData";
 
  function ListProjects() {
   const [data, setData] = useState(tableData);
