@@ -32,6 +32,7 @@
 		</attributes>
 	</classpathentry>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
@@ -50,6 +51,8 @@
 	</classpathentry>
 >>>>>>> 0f4b1ee0c91334f66188ea59c8cc82941f2bd995
 >>>>>>> 2a941ae3e5929a55bd65d942812b183b97f9681f
+=======
+>>>>>>> b6bab21568813621ac91284e3346c580f4553785
 	<classpathentry kind="src" output="target/test-classes" path="target/generated-test-sources/test-annotations">
 		<attributes>
 			<attribute name="optional" value="true"/>

@@ -7,7 +7,7 @@ import javax.persistence.Id;
 @Entity
 public class Project {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private Long projectId;
     private String name;
@@ -16,8 +16,6 @@ public class Project {
     private String priority;
     private String deadline;
     private String status;
-
-    // Constructors, getters, and setters
 
     public Project() {
     }
@@ -32,8 +30,6 @@ public class Project {
         this.deadline = deadline;
         this.status = status;
     }
-
-    // Getters and setters
 
     public Long getId() {
         return id;

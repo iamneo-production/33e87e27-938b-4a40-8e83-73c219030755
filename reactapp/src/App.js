@@ -1,3 +1,12 @@
+// import './App.css';
+// import Login from './components/login';
+// import SignUp from './components/signup';
+// import ForgotPassword from './components/forgotpassword';
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import { ToastContainer } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+// import ListProjects from './pages/listProjects';
+import React from 'react';
 import './App.css';
 import './components/Sidebar/Sidebar.css';
 import Login from './components/login';
@@ -6,24 +15,15 @@ import ForgotPassword from './components/forgotpassword';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Sidebar from './components/Sidebar/Sidebar';
-import Home from './Pages/Home.js';
-import Projects from './Pages/Projects.js';
-import MyTasks from './Pages/MyTasks.js';
-import Profile from './Pages/Profile';
-import Chat from './Pages/Chat.js';
-import Logout from './Pages/Logout.js';
-import ListProjects from './components/pages/listProjects';
+import ListProjects from './pages/listProjects';
 
 
 function App() {
   return (
     <div>
       <Router>
-      <Sidebar>
       <ToastContainer/>
-        <Routes>
-         
+        <Routes> 
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
@@ -37,7 +37,6 @@ function App() {
           <Route path="/logout" element={<Logout />} />
 
         </Routes>
-      </Sidebar>
       </Router>
     </div>
   );
