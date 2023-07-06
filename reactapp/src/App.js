@@ -7,13 +7,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Sidebar from './components/Sidebar/Sidebar';
-import Home from './pages/Home.js';
-import Projects from './pages/Projects.js';
-import MyTasks from './pages/MyTasks.js';
-import Profile from './pages/Profile';
-import Chat from './pages/Chat.js';
-import Logout from './pages/Logout.js';
-import ListProjects from './pages/listProjects';
+import Home from './Pages/Home.js';
+import Projects from './Pages/Projects.js';
+import MyTasks from './Pages/MyTasks.js';
+import Profile from './Pages/Profile';
+import Chat from './Pages/Chat.js';
+import Logout from './Pages/Logout.js';
+import ListProjects from './components/pages/listProjects';
 
 
 function App() {
