@@ -7,13 +7,21 @@ import ForgotPassword from './components/forgotpassword';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import ListProjects from './pages/listProjects';
+import Sidebar from './components/Sidebar/Sidebar';
+import Home from './Pages/Home.js';
+import Projects from './Pages/Projects.js';
+import MyTasks from './Pages/MyTasks.js';
+import Profile from './Pages/Profile';
+import Chat from './Pages/Chat.js';
+import Logout from './Pages/Logout.js';
+import ListProjects from './components/pages/listProjects';
 
 
 function App() {
   return (
     <div>
       <Router>
+      <Sidebar>
       <ToastContainer/>
         <Routes> 
           <Route path="/" element={<Login />} />
@@ -29,6 +37,7 @@ function App() {
           <Route path="/logout" element={<Logout />} />
 
         </Routes>
+        </Sidebar>
       </Router>
     </div>
   );
