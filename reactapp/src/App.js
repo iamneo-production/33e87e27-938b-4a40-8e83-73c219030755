@@ -11,6 +11,7 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Home from './Pages/Home.js';
 import Projects from './Pages/Projects.js';
 import MyTasks from './Pages/MyTasks.js';
+import Reports from './Pages/Reports.js';
 import Profile from './Pages/Profile';
 import Chat from './Pages/Chat.js';
 import Logout from './Pages/Logout.js';
@@ -32,6 +33,7 @@ function App() {
           <Route path="/home" element={ <Home />} />
           <Route path="/projects" element={<Projects />} /> 
           <Route path="/mytasks" element={<MyTasks />} />
+          <Route path="/reports" element={<Reports />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/logout" element={<Logout />} />

@@ -8,6 +8,7 @@ import {
     FaSignOutAlt,
     FaThList
 }from "react-icons/fa";
+import * as IoIcons from "react-icons/io";
 import { NavLink } from 'react-router-dom';
 
 const Sidebar = ({children}) => {
@@ -27,6 +28,11 @@ const Sidebar = ({children}) => {
             path:"/mytasks",
             name:"MyTasks",
             icon: <FaTasks/>
+        },
+        {
+            path:"/reports",
+            name:"Reports",
+            icon: <IoIcons.IoIosPaper/>
         },
         {
             path:"/profile",
