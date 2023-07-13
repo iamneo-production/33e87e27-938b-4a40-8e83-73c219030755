@@ -22,12 +22,20 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1688131228370</id>
+<<<<<<< HEAD
+			<id>1688030830263</id>
+=======
+<<<<<<< HEAD
+			<id>1688462825807</id>
+=======
+			<id>1687764205866</id>
+>>>>>>> 196b5810615d7c8bcdda0bfd580c7076bd5005d2
+>>>>>>> aba55e393b2f0dac96e7c9cfe75a6f2d10e6f6b6
 			<name></name>
 			<type>30</type>
 			<matcher>
 				<id>org.eclipse.core.resources.regexFilterMatcher</id>
-				<arguments>node_modules|\.git|__CREATED_BY_JAVA_LANGUAGE_SERVER__</arguments>
+				<arguments>node_modules|.git|__CREATED_BY_JAVA_LANGUAGE_SERVER__</arguments>
 			</matcher>
 		</filter>
 	</filteredResources>
