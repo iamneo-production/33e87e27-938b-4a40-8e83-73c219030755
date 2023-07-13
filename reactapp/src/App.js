@@ -16,6 +16,7 @@ import Profile from './Pages/Profile';
 import Chat from './Pages/Chat.js';
 import Logout from './Pages/Logout.js';
 import ListProjects from './components/pages/listProjects';
+import ChartsRender from './components/chart1/ChartsRender';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/listprojects" element={<ListProjects />} />
+<<<<<<< HEAD
           <Route path="/" element={<Home />  } />
           <Route path="/home" element={ <Home />} />
           <Route path="/projects" element={<Projects />} /> 
@@ -38,6 +40,9 @@ function App() {
           <Route path="/chat" element={<Chat />} />
           <Route path="/logout" element={<Logout />} />
 
+=======
+          <Route path="/ChartsRender" element={<ChartsRender />} />
+>>>>>>> 57d3d108ab00c5ad0595bbcf6189e016f965d20e
         </Routes>
         </Sidebar>
       </Router>
