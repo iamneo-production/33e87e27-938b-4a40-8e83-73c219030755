@@ -29,6 +29,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
+          <Route path="/listprojects" element={<ListProjects />} />
           <Route path="/" element={<Home />  } />
           <Route path="/home" element={ <Home />} />
           <Route path="/projects" element={<Projects />} /> 
@@ -38,7 +39,9 @@ function App() {
           <Route path="/chat" element={<Chat />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/listprojects" element={<ListProjects />} />
+
           <Route path="/ChartsRender" element={<ChartsRender />} />
+
         </Routes>
         </Sidebar>
       </Router>
