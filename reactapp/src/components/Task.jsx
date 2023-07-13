@@ -21,7 +21,7 @@ const TaskManagement = () => {
   }, []);
 
   const fetchTasks = () => {
-    axios.get('http://localhost:8080/tasks/getAll')
+    axios.get('http://localhost:8080/tasks')
       .then(response => {
         setTasks(response.data);
       })

@@ -34,6 +34,7 @@ public Optional<User> getUser(long id) {
             existingUser.setLastname(updatedUser.getLastname());
             existingUser.setEmail(updatedUser.getEmail());
             existingUser.setUsername(updatedUser.getUsername());
+            existingUser.setRole(updatedUser.getRole());
             return profileDao.save(existingUser);
         } else {
             throw new RuntimeException("User not found with ID: " + id);

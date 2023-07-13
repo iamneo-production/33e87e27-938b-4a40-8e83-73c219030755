@@ -1,0 +1,11 @@
+.Chartsu {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+  }
+  .body{
+
+    background-color: white;
+  }
