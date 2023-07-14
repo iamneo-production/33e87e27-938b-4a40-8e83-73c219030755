@@ -1,38 +1,21 @@
-import ChartDropdownHello from './chartdropdown';
-import ChartDropdownTutorial from './chartdropdownsecond';
-import Navbar from './navbar';
-import React from 'react';
-import './ChartsRender.css';
-
-
-
-
-  
-
+import Barchart from './GraphChart';
+import Navbar from './navbarhome';
+import SecondBarchart from './GraphChartSecond';
+import './chartsrender.css'
 
 function ChartsRender() {
-
-  
   return (
-    <>
     <div>
-    
       <Navbar/>
-      <div className='Chartsu'>
-        <ChartDropdownHello/> 
-        <ChartDropdownTutorial/>
-        </div>
-      
-      
-      
-      
-      </div>
-      
-    
-   
-    </>
-    );
-}
+      <br></br>
 
+    
+    <div className="ChartsRender">
+          <Barchart/>
+          <SecondBarchart/>
+    </div>
+    </div>
+  );
+}
 
 export default ChartsRender;
