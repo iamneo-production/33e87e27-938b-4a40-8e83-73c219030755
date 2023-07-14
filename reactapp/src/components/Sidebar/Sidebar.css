@@ -3,18 +3,14 @@
     padding:0;
     text-decoration: none;
 }
-.container{
-    display:flex;
-}
-main{
-    width: 100%;
-    padding: 20px;
-}
+
+
 .sidebar{
     background: #1b8dff;
     color: #fff;
     height: 100vh;
-    width: 200px;
+   
+    min-width:60px;
     transition: all 0.5s;
 }
 .top_section{
@@ -36,14 +32,16 @@ main{
     padding: 10px 15px;
     gap: 15px;
     transition: all 0.5s;
+   
 }
 .link:hover{
-    background:lightskyblue;
+   
     color: #000;
     transition: all 0.5s;
+   
 }
 .active{
-    background: lightskyblue;
+   
     color: #000;
 }
 .icon, .link_text{

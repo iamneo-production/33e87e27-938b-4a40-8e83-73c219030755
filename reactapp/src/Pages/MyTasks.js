@@ -1,7 +1,7 @@
 import React from 'react';
 const MyTasks = () => {
     return (
-        <div>
+        <div className='ml-56'>
             <h1>Tasks page</h1>
         </div>
     );

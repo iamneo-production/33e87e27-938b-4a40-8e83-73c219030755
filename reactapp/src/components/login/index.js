@@ -1,6 +1,6 @@
 import { AuthInputbox, Authpasswordbox } from "../../components/inputbox";
 import { PrimaryBtn } from "../../components/button";
-import React from "react";
+import React,{useContext,useEffect} from "react";
 import { Formik, Form } from "formik";
 import { LoginSchema } from "./schema";
 import { Link } from "react-router-dom";
@@ -8,15 +8,22 @@ import styles from "./login.module.css";
 import axios from "axios";
 import { toast } from 'react-toastify';
 import { url } from "../url/url";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../context";
 
 
 
 
 const Login = () => {
+  const {setUser,user}=useContext(UserContext)
+  const navigate = useNavigate();
   const initialValues = {
     email: "",
     password: "",
   };
+  useEffect(() => {
+    console.log(user)
+  }, [user]);
 
   const handleSubmit = (values) => {
     axios({
@@ -30,6 +37,9 @@ const Login = () => {
       .then((response) => {
         toast.success("Login successful");
         console.log(response.data);
+        setUser(true);
+        console.log(user)
+
       })
       .catch((error) => {
         toast.error("Login failed");
