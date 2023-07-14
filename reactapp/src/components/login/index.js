@@ -37,6 +37,7 @@ const Login = () => {
       .then((response) => {
         toast.success("Login successful");
         console.log(response.data);
+        localStorage.setItem("AuthToken",response.data.token);
         setUser(true);
         console.log(user)
 
