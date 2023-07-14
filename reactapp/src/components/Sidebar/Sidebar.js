@@ -53,7 +53,7 @@ const Sidebar = ({children}) => {
     ]
     
     return (
-        <div className="container">
+        <div className="fixed sidebar">
            <div className="sidebar">
                <div className="top_section">
                    <h2 className="Dashboard"><b>My Dashboard</b></h2>
@@ -61,7 +61,7 @@ const Sidebar = ({children}) => {
                {
                    menuItem.map((item, index)=>(
                        <NavLink to={item.path} key={index} className="link" activeclassName="active">
-                           <div className="icon">{item.icon}</div>
+                           <div className="icon pt-1">{item.icon}</div>
                            <div className="link_text">{item.name}</div>
                        </NavLink>
                    ))
