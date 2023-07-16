@@ -5,9 +5,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Project {
+public class Task {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long projectId;
     private String name;
@@ -17,10 +17,12 @@ public class Project {
     private String deadline;
     private String status;
 
-    public Project() {
+    // Constructors, getters, and setters
+
+    public Task() {
     }
 
-    public Project(Long taskId, Long projectId, String name, String description, String assignedTo, String priority, String deadline, String status) {
+    public Task(Long taskId, Long projectId, String name, String description, String assignedTo, String priority, String deadline, String status) {
         this.id = taskId;
         this.projectId = projectId;
         this.name = name;
@@ -30,6 +32,8 @@ public class Project {
         this.deadline = deadline;
         this.status = status;
     }
+
+    // Getters and setters
 
     public Long getId() {
         return id;
