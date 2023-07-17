@@ -1,21 +1,10 @@
-
-
-
-package com.example.springapp.Entity;
-
-//import com.fasterxml.jackson.annotation.JsonBackReference;
-//import com.fasterxml.jackson.annotation.JsonIgnore;
-//import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-//import com.fasterxml.jackson.annotation.JsonManagedReference;
+package com.example.springapp.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
 
-@Entity(name ="ProjectEntity")
-@Table(name ="ProjectEntity")
-public class Project implements Serializable {
+@Entity
+public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
@@ -24,6 +13,13 @@ public class Project implements Serializable {
     private String description;
     private LocalDate startDate;
     private LocalDate endDate;
+
+    public Project(String name, String description, LocalDate startDate, LocalDate endDate) {
+        this.name = name;
+        this.description = description;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
 
     public Long getId() {
         return id;
@@ -67,13 +63,5 @@ public class Project implements Serializable {
 
     public Project() {
     }
-
-    public Project(String name, String description, LocalDate startDate, LocalDate endDate) {
-        this.name = name;
-        this.description = description;
-        this.startDate = startDate;
-        this.endDate = endDate;
-    }
-
 
 }
