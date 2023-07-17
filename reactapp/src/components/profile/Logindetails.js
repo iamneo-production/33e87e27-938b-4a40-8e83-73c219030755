@@ -1,19 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import ProfilePage from './ProfilePage';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import ProfilePage from "./Profile";
+import axios from "axios";
 
 const Logindetails = () => {
   const [loggedInUserId, setLoggedInUserId] = useState(null);
 
   useEffect(() => {
-    // Simulating user authentication or session management
-    // Retrieve the logged-in user's ID
     const fetchLoggedInUserId = async () => {
+      console.log(localStorage.getItem("AuthToken"));
       try {
-        const response = await axios.get('http://localhost:8080/profile/logged-in-user-id');
-        const data = response.data;
+        const response = await axios.get('http://localhost:8080/profile/logged-in-user-id', {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("AuthToken")
+          }
+        });
 
+        const data = response.data;
         setLoggedInUserId(data.userId);
+        console.log(data.userId);
       } catch (error) {
         console.error('Error fetching logged-in user ID:', error);
       }
@@ -23,7 +27,7 @@ const Logindetails = () => {
   }, []);
 
   return (
-    <div className="App">
+    <div className='ml-56'>
       {loggedInUserId ? (
         <ProfilePage userId={loggedInUserId} />
       ) : (

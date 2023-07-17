@@ -1,27 +1,19 @@
+import logo from './logo.svg';
 import './App.css';
-import Login from './components/login';
-import SignUp from './components/signup';
-import ForgotPassword from './components/forgotpassword';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import ListProjects from './pages/listProjects';
+import { BrowserRouter } from 'react-router-dom';
+import { ContextProvider } from './context';
+import AppRoute from './router/Approute';
 
 
 function App() {
   return (
-    <div>
-      <Router>
-      <ToastContainer/>
-        <Routes>
-         
-          <Route path="/" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/forgotpassword" element={<ForgotPassword />} />
-          <Route path="/listprojects" element={<ListProjects />} />
-        </Routes>
-      </Router>
-    </div>
+    <>
+     <ContextProvider>
+        <BrowserRouter>
+          <AppRoute />
+        </BrowserRouter>
+      </ContextProvider>
+    </>
   );
 }
 
