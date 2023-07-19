@@ -1,3 +1,4 @@
+
 package com.example.springapp.config;
 
 import lombok.RequiredArgsConstructor;
@@ -38,3 +39,4 @@ public class SecurityConfiguration {
         return http.build();
     }
 }
+
