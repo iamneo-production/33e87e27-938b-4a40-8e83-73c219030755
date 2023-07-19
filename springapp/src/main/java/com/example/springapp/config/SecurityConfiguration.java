@@ -1,5 +1,5 @@
-package com.example.springapp.config;
 
+package com.example.springapp.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -25,7 +25,7 @@ public class SecurityConfiguration {
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .antMatchers("/api/**","/tasks/**")
+                .antMatchers("/api/**", "/task/**", "/profile/**", "/projects/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
@@ -39,3 +39,4 @@ public class SecurityConfiguration {
         return http.build();
     }
 }
+
