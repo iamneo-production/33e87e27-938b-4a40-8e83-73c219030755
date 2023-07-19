@@ -14,7 +14,7 @@ const ProfilePage = ({ userId }) => {
     lastname: '',
     email: '',
     username: '',
-    role: 'USER' // Set the default role here
+    role: 'USER' 
   });
 
   useEffect(() => {
