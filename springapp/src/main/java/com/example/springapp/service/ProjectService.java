@@ -1,10 +1,17 @@
 package com.example.springapp.service;
-import java.util.List;
+
 import com.example.springapp.model.Project;
+
+import java.util.List;
+
 public interface ProjectService {
     List<Project> getAllProjects();
+
     Project getProjectById(Long id);
-    Project createProject(Project Project);
-    Project updateProject(Long id, Project ProjectDetails);
+
+    Project createProject(Project project);
+
+    Project updateProject(Long id, Project project);
+
     void deleteProject(Long id);
 }

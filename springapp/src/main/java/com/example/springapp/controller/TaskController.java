@@ -1,42 +1,61 @@
-package com.example.springapp.controller;
-
-import com.example.springapp.exception.ResourceNotFoundException;
-import com.example.springapp.model.Task;
-import com.example.springapp.repository.TaskRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+package com.example.springapp.controller ;
+import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import com.example.springapp.repository.ProjectRepository;
-import java.util.List;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.DeleteMapping;
+
+import com.example.springapp.service.TaskService;
+import com.example.springapp.model.Task;
 
 @RestController
-@CrossOrigin()
-@RequestMapping()
+@RequestMapping("/task")
+@CrossOrigin(origins = "http://localhost:3000" ,maxAge =3600)
 public class TaskController {
-
+    
     @Autowired
-    private ProjectRepository projectRepository;
+    private TaskService taskService;
 
-    @Autowired
-    private TaskRepository taskRepository;
+    // Get all tasks
+    @GetMapping()
+    public ResponseEntity<List<Task>> getAllTasks() {
+        List<Task> tasks =  taskService.getAllTasks();
+        return new ResponseEntity<>(tasks, HttpStatus.OK);
+    }
 
-  @GetMapping("/tasks/{id}")
-  public ResponseEntity<Task> getTasksByProjectId(@PathVariable(value = "id") Long id) {
-    Task task = taskRepository.findById(id)
-        .orElseThrow(() -> new ResourceNotFoundException("Not found task with id = " + id));
+    // Create a new task
+    @PostMapping("/add")
+    public ResponseEntity<Void> createTask(@RequestBody Task task) {
+        taskService.createTask(task);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
 
-    return new ResponseEntity<>(task, HttpStatus.OK);
-  }
+    // Get a task by ID
 
-    @GetMapping("/tasks/{id}")
-    public ResponseEntity<Task> getTaskById(@PathVariable(value = "id") Long id) {
-        Task task = taskRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Task not found with id: " + id));
-        return ResponseEntity.ok(task);
-   }
-    @GetMapping("/tasks")
-    List<Task> getAllTasks() {
-        return taskRepository.findAll();
+    @GetMapping("/{id}")
+    public Task getTaskById(@PathVariable Long id) {
+        return taskService.getTaskById(id);
+    }
+
+    // Update a task
+    @PutMapping("/{id}")
+    public Task updateTask(@PathVariable Long id, @RequestBody Task taskDetails) {
+        return taskService.updateTask(id, taskDetails);
+    }
+
+    // Delete a task
+    @DeleteMapping("/{id}")
+    public void deleteTask(@PathVariable Long id) {
+        taskService.deleteTask(id);
     }
 }
+
