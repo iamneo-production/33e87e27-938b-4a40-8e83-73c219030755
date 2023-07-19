@@ -1,52 +1,57 @@
-package com.example.springapp.controller ;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+package com.example.springapp.controller;
+
 import com.example.springapp.model.Project;
 import com.example.springapp.service.ProjectService;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-
-@CrossOrigin(origins = "http://localhost:3000" ,maxAge =3600)
+@RequestMapping("/projects")
 public class ProjectController {
-    private ProjectService ProjectService;
+    private final ProjectService projectService;
 
     @Autowired
-    public ProjectController(ProjectService ProjectService) {
-        this.ProjectService = ProjectService;
+    public ProjectController(ProjectService projectService) {
+        this.projectService = projectService;
     }
 
-    // Get all tasks
-    @GetMapping("/tasks")
+    @GetMapping
     public ResponseEntity<List<Project>> getAllProjects() {
-        List<Project> Projects =  ProjectService.getAllProjects();
-        return new ResponseEntity<>(Projects, HttpStatus.OK);
+        List<Project> projects = projectService.getAllProjects();
+        return new ResponseEntity<>(projects, HttpStatus.OK);
     }
 
-    // Create a new Project
-    @PostMapping("/tasks/add")
-    public ResponseEntity<Void> createProject(@RequestBody Project Project) {
-        ProjectService.createProject(Project);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    @GetMapping("/{id}")
+    public ResponseEntity<Project> getProjectById(@PathVariable Long id) {
+        Project project = projectService.getProjectById(id);
+        if (project != null) {
+            return new ResponseEntity<>(project, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    // Get a Project by ID
-    @GetMapping("tasks/{id}")
-    public Project getProjectById(@PathVariable Long id) {
-        return ProjectService.getProjectById(id);
+    @PostMapping
+    public ResponseEntity<Project> createProject(@RequestBody Project project) {
+        Project createdProject = projectService.createProject(project);
+        return new ResponseEntity<>(createdProject, HttpStatus.CREATED);
     }
 
-    // Update a Project
-    @PutMapping("tasks/{id}")
-    public Project updateProject(@PathVariable Long id, @RequestBody Project ProjectDetails) {
-        return ProjectService.updateProject(id, ProjectDetails);
+    @PutMapping("/{id}")
+    public ResponseEntity<Project> updateProject(@PathVariable Long id, @RequestBody Project project) {
+        Project updatedProject = projectService.updateProject(id, project);
+        if (updatedProject != null) {
+            return new ResponseEntity<>(updatedProject, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    // Delete a Project
-    @DeleteMapping("tasks/{id}")
-    public void deleteProject(@PathVariable Long id) {
-        ProjectService.deleteProject(id);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteProject(@PathVariable Long id) {
+        projectService.deleteProject(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

@@ -6,7 +6,7 @@ import Home from "../Pages/Home";
 import Projects from "../Pages/Projects.js";
 import MyTasks from "../Pages/MyTasks.js";
 import Reports from "../Pages/Reports.js";
-import Profile from "../Pages/Profile";
+import Logindetails from '../components/profile/Logindetails';
 import Chat from "../Pages/Chat.js";
 import Logout from "../Pages/Logout.js";
 import ListProjects from "../components/pages/listProjects";
@@ -23,7 +23,7 @@ function HomeRoute() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/mytasks" element={<MyTasks />} />
           <Route path="/reports" element={<Reports />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Logindetails />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/listprojects" element={<ListProjects />} />
