@@ -18,7 +18,7 @@ import com.example.springapp.service.TaskService;
 import com.example.springapp.model.Task;
 
 @RestController
-@RequestMapping("/task")
+@RequestMapping("/tasks")
 @CrossOrigin(origins = "http://localhost:3000" ,maxAge =3600)
 public class TaskController {
     
