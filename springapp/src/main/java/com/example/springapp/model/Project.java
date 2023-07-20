@@ -1,67 +1,102 @@
 package com.example.springapp.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Project {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false)
-    private Long id;
-    private String name;
-    private String description;
-    private LocalDate startDate;
-    private LocalDate endDate;
 
-    public Project(String name, String description, LocalDate startDate, LocalDate endDate) {
-        this.name = name;
-        this.description = description;
-        this.startDate = startDate;
-        this.endDate = endDate;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long projectId;
+	private String projectName;
+	private String projectDescription;
+//	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 
-    public Long getId() {
-        return id;
-    }
+	private LocalDate projectStartDate;
+//	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+	private LocalDate projectEndDate;
 
-    public String getName() {
-        return name;
-    }
+	@JsonIgnoreProperties("project")
+	@OneToMany(mappedBy = "project",cascade = CascadeType.ALL)
+	private List<Task> taskList;
+	
+	public long getProjectId() {
+		return projectId;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setProjectId(long projectId) {
+		this.projectId = projectId;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public String getProjectName() {
+		return projectName;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public String getProjectDescription() {
+		return projectDescription;
+	}
 
-    public LocalDate getStartDate() {
-        return startDate;
-    }
+	public void setProjectDescription(String projectDescription) {
+		this.projectDescription = projectDescription;
+	}
 
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
+	public LocalDate getProjectStartDate() {
+		return projectStartDate;
+	}
 
-    public LocalDate getEndDate() {
-        return endDate;
-    }
+	public void setProjectStartDate(LocalDate projectStartDate) {
+		this.projectStartDate = projectStartDate;
+	}
 
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
-    }
+	public LocalDate getProjectEndDate() {
+		return projectEndDate;
+	}
 
-    public Project() {
-    }
+	public void setProjectEndDate(LocalDate projectEndDate) {
+		this.projectEndDate = projectEndDate;
+	}
+
+
+	public List<Task> getTaskList() {
+		return taskList;
+	}
+
+	public void setTaskList(List<Task> taskList) {
+		this.taskList = taskList;
+	}
+
+	public Project(long projectId, String projectName, String projectDescription, LocalDate projectStartDate,
+			LocalDate projectEndDate, List<Task> taskList) {
+		super();
+		this.projectId = projectId;
+		this.projectName = projectName;
+		this.projectDescription = projectDescription;
+		this.projectStartDate = projectStartDate;
+		this.projectEndDate = projectEndDate;
+		this.taskList = taskList;
+	}
+
+	public Project() {
+		super();
+	}
+
+	@Override
+	public String toString() {
+		return "Project [projectId=" + projectId + ", projectName=" + projectName + ", projectDescription="
+				+ projectDescription + ", projectStartDate=" + projectStartDate + ", projectEndDate=" + projectEndDate
+				+ ", taskList=" + taskList + "]";
+	}
+	
+	
+	
 
 }
