@@ -61,12 +61,12 @@ public class ProjectController {
 		}
 	}
 
-	@GetMapping("/projects/{id}/tasks")
+	@GetMapping("/tasks/project/{id}")
 	public ResponseEntity<List<Task>> updateTask(@PathVariable long id) {
 		return new ResponseEntity<List<Task>>(projectService.getTaskByProjectId(id), HttpStatus.OK);
 	}
 
-	@PostMapping("/projects/{id}/tasks")
+	@PostMapping("/tasks/project/{id}")
 	public String createTask(@PathVariable long id, @RequestBody Task tasks) {
 		projectService.createTasksByProjectId(id, tasks);
 		return "added";
