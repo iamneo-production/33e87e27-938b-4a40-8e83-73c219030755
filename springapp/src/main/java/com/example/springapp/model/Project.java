@@ -1,101 +1,102 @@
 package com.example.springapp.model;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Project {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private Long projectId;
-    private String name;
-    private String description;
-    private String assignedTo;
-    private String priority;
-    private String deadline;
-    private String status;
 
-    // Constructors, getters, and setters
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long projectId;
+	private String projectName;
+	private String projectDescription;
+//	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 
-    public Project() {
-    }
+	private LocalDate projectStartDate;
+//	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+	private LocalDate projectEndDate;
 
-    public Project(Long taskId, Long projectId, String name, String description, String assignedTo, String priority, String deadline, String status) {
-        this.id = taskId;
-        this.projectId = projectId;
-        this.name = name;
-        this.description = description;
-        this.assignedTo = assignedTo;
-        this.priority = priority;
-        this.deadline = deadline;
-        this.status = status;
-    }
+	@JsonIgnoreProperties("project")
+	@OneToMany(mappedBy = "project",cascade = CascadeType.ALL)
+	private List<Task> taskList;
+	
+	public long getProjectId() {
+		return projectId;
+	}
 
-    // Getters and setters
+	public void setProjectId(long projectId) {
+		this.projectId = projectId;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public String getProjectName() {
+		return projectName;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
 
-    public Long getProjectId() {
-        return projectId;
-    }
+	public String getProjectDescription() {
+		return projectDescription;
+	}
 
-    public void setProjectId(Long projectId) {
-        this.projectId = projectId;
-    }
+	public void setProjectDescription(String projectDescription) {
+		this.projectDescription = projectDescription;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public LocalDate getProjectStartDate() {
+		return projectStartDate;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setProjectStartDate(LocalDate projectStartDate) {
+		this.projectStartDate = projectStartDate;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public LocalDate getProjectEndDate() {
+		return projectEndDate;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void setProjectEndDate(LocalDate projectEndDate) {
+		this.projectEndDate = projectEndDate;
+	}
 
-    public String getAssignedTo() {
-        return assignedTo;
-    }
 
-    public void setAssignedTo(String assignedTo) {
-        this.assignedTo = assignedTo;
-    }
+	public List<Task> getTaskList() {
+		return taskList;
+	}
 
-    public String getPriority() {
-        return priority;
-    }
+	public void setTaskList(List<Task> taskList) {
+		this.taskList = taskList;
+	}
 
-    public void setPriority(String priority) {
-        this.priority = priority;
-    }
+	public Project(long projectId, String projectName, String projectDescription, LocalDate projectStartDate,
+			LocalDate projectEndDate, List<Task> taskList) {
+		super();
+		this.projectId = projectId;
+		this.projectName = projectName;
+		this.projectDescription = projectDescription;
+		this.projectStartDate = projectStartDate;
+		this.projectEndDate = projectEndDate;
+		this.taskList = taskList;
+	}
 
-    public String getDeadline() {
-        return deadline;
-    }
+	public Project() {
+		super();
+	}
 
-    public void setDeadline(String deadline) {
-        this.deadline = deadline;
-    }
+	@Override
+	public String toString() {
+		return "Project [projectId=" + projectId + ", projectName=" + projectName + ", projectDescription="
+				+ projectDescription + ", projectStartDate=" + projectStartDate + ", projectEndDate=" + projectEndDate
+				+ ", taskList=" + taskList + "]";
+	}
+	
+	
+	
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 }

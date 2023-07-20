@@ -1,52 +1,74 @@
-package com.example.springapp.controller ;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+package com.example.springapp.controller;
+
 import com.example.springapp.model.Project;
+import com.example.springapp.model.Task;
 import com.example.springapp.service.ProjectService;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+@CrossOrigin
 @RestController
 
-@CrossOrigin(origins = "http://localhost:3000" ,maxAge =3600)
 public class ProjectController {
-    private ProjectService ProjectService;
 
-    @Autowired
-    public ProjectController(ProjectService ProjectService) {
-        this.ProjectService = ProjectService;
-    }
+	@Autowired
+	ProjectService projectService;
 
-    // Get all tasks
-    @GetMapping("/tasks")
-    public ResponseEntity<List<Project>> getAllProjects() {
-        List<Project> Projects =  ProjectService.getAllProjects();
-        return new ResponseEntity<>(Projects, HttpStatus.OK);
-    }
+	@GetMapping("/projects")
+	public List<Project> getAllProjects() {
+		return projectService.getAllProjects();
+	}
 
-    // Create a new Project
-    @PostMapping("/tasks/add")
-    public ResponseEntity<Void> createProject(@RequestBody Project Project) {
-        ProjectService.createProject(Project);
-        return new ResponseEntity<>(HttpStatus.CREATED);
-    }
+	@PostMapping("/projects")
+	public ResponseEntity<Project> createProject(@RequestBody Project project) {
+		if (project != null) {
 
-    // Get a Project by ID
-    @GetMapping("tasks/{id}")
-    public Project getProjectById(@PathVariable Long id) {
-        return ProjectService.getProjectById(id);
-    }
+			return new ResponseEntity<>(projectService.createProject(project), HttpStatus.CREATED);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 
-    // Update a Project
-    @PutMapping("tasks/{id}")
-    public Project updateProject(@PathVariable Long id, @RequestBody Project ProjectDetails) {
-        return ProjectService.updateProject(id, ProjectDetails);
-    }
+	}
 
-    // Delete a Project
-    @DeleteMapping("tasks/{id}")
-    public void deleteProject(@PathVariable Long id) {
-        ProjectService.deleteProject(id);
-    }
+	@GetMapping("/projects/{id}")
+	public ResponseEntity<Project> getProjectById(@PathVariable Long id) {
+		if (id != null) {
+			return new ResponseEntity<Project>(projectService.getProjectById(id), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@PutMapping("/projects/{id}")
+	public ResponseEntity<Project> updateProject(@PathVariable Long id, @RequestBody Project ProjectDetails) {
+		if (id != null) {
+			return new ResponseEntity<Project>(projectService.updateProject(id, ProjectDetails), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@DeleteMapping("/projects/{id}")
+	public ResponseEntity<Void> deleteProject(@PathVariable Long id) {
+		if (id != null) {
+			projectService.deleteProject(id);
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@GetMapping("/tasks/project/{id}")
+	public ResponseEntity<List<Task>> updateTask(@PathVariable long id) {
+		return new ResponseEntity<List<Task>>(projectService.getTaskByProjectId(id), HttpStatus.OK);
+	}
+
+	@PostMapping("/tasks/project/{id}")
+	public String createTask(@PathVariable long id, @RequestBody Task tasks) {
+		projectService.createTasksByProjectId(id, tasks);
+		return "added";
+	}
 }
