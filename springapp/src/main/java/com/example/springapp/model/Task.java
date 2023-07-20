@@ -3,13 +3,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long projectId;
     private String name;
     private String description;
     private String assignedTo;
@@ -17,14 +18,17 @@ public class Task {
     private String deadline;
     private String status;
 
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    private Project project;
+
     // Constructors, getters, and setters
 
     public Task() {
     }
 
-    public Task(Long taskId, Long projectId, String name, String description, String assignedTo, String priority, String deadline, String status) {
+    public Task(Long taskId, String name, String description, String assignedTo, String priority, String deadline, String status) {
         this.id = taskId;
-        this.projectId = projectId;
         this.name = name;
         this.description = description;
         this.assignedTo = assignedTo;
@@ -41,14 +45,6 @@ public class Task {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getProjectId() {
-        return projectId;
-    }
-
-    public void setProjectId(Long projectId) {
-        this.projectId = projectId;
     }
 
     public String getName() {
@@ -98,4 +94,12 @@ public class Task {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
+	}
 }

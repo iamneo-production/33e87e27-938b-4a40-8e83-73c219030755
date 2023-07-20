@@ -1,6 +1,7 @@
 package com.example.springapp.service;
 
 import com.example.springapp.model.Project;
+import com.example.springapp.model.Task;
 
 import java.util.List;
 
@@ -13,5 +14,9 @@ public interface ProjectService {
 
     Project updateProject(Long id, Project project);
 
-    void deleteProject(Long id);
+    Project deleteProject(Long id);
+
+    List<Task> getTaskByProjectId(Long id);
+
+	String createTasksByProjectId(Long id, Task tasks);
 }
