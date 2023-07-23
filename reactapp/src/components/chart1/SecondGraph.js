@@ -5,7 +5,7 @@ function Barchart() {
   return (
     <React.Fragment>
       <div>
-      <h3 style={{fontSize : "25px", fontWeight : "bolder"}}>PROJECT TASK PROGRESS CHART</h3>
+      <h3 style={{fontSize : "25px", fontWeight : "bolder", paddingLeft: "332px"}}>PROJECT TASK PROGRESS CHART</h3>
 
         <Chart
           type="bar"
@@ -14,13 +14,13 @@ function Barchart() {
           series={[
             {
               name: "Completion Percentage ",
-              data: [20,40,60,80,100],
+              data: [100,60,30,20,40],
             },
           ]}
           options={{
             
             colors: ["#f90000"],
-            theme: { mode: "light" },
+            theme: { mode: "dark" },
 
             xaxis: {
               tickPlacement: "on",
