@@ -10,7 +10,7 @@ import Logindetails from '../components/profile/Logindetails';
 import Chat from "../Pages/Chat.js";
 import Logout from "../Pages/Logout.js";
 import ListProjects from "../components/pages/listProjects";
-import ChartsRender from "../components/chart1/ChartsRender";
+import GraphRender from '../components/chart1/GraphRender';
 
 function HomeRoute() {
   return (
@@ -27,7 +27,7 @@ function HomeRoute() {
           <Route path="/chat" element={<Chat />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/listprojects" element={<ListProjects />} />
-          <Route path="/ChartsRender" element={<ChartsRender />} />
+          <Route path="/GraphRender" element={<GraphRender />} />
         </Routes>
        
     
