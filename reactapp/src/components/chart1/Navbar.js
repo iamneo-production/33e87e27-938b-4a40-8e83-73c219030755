@@ -1,17 +1,14 @@
 import React from "react";
-import "../chart1/navbar.css"
+import "../chart1/Navbar.css"
 
 function Navbar() {
   
-  
   return (
     <nav className="nav">
-      <a href="#" className="nav__brand">
+      <div className="nav__brand">
         Report and Analytics
-      </a>
-      
-      
-    </nav>
+      </div>
+      </nav>
   );
 }
 
