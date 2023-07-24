@@ -1,6 +1,5 @@
 package com.example.springapp.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -15,10 +14,7 @@ public class Project {
 	private long projectId;
 	private String projectName;
 	private String projectDescription;
-//	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-
 	private LocalDate projectStartDate;
-//	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private LocalDate projectEndDate;
 
 	@JsonIgnoreProperties("project")
@@ -98,5 +94,4 @@ public class Project {
 	
 	
 	
-
 }
