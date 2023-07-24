@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @CrossOrigin
 @RestController
+// @RequestMapping("/tasks/project")
 
 public class ProjectController {
 
@@ -62,8 +63,9 @@ public class ProjectController {
 	}
 
 	@GetMapping("/tasks/project/{id}")
-	public ResponseEntity<List<Task>> updateTask(@PathVariable long id) {
-		return new ResponseEntity<List<Task>>(projectService.getTaskByProjectId(id), HttpStatus.OK);
+	public ResponseEntity<Project> updateTask(@PathVariable long id) {
+	// return new ResponseEntity<List<Task>>(projectService.getTaskByProjectId(id), HttpStatus.OK);
+	return new ResponseEntity<Project>(projectService.getProjectById(id), HttpStatus.OK);
 	}
 
 	@PostMapping("/tasks/project/{id}")
