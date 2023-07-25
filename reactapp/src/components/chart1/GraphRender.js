@@ -1,4 +1,4 @@
-import './GraphRender.css';
+// import './GraphRender.css';
 import FirstGraph from './FirstGraph';
 import Navbar from './Navbar';
 import Barchart from './SecondGraph';
