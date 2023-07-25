@@ -3,7 +3,7 @@ import "../App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "../components/Sidebar/Sidebar";
 import Home from "../Pages/Home";
-import Projects from "../Pages/Projects.jsx";
+import Projects from "../Pages/Projects.js";
 import MyTasks from "../Pages/MyTasks.js";
 import Reports from "../Pages/Reports.js";
 import Logindetails from "../components/profile/Logindetails";
@@ -16,8 +16,11 @@ import ViewProject from "../components/ProjectComponents/ViewProject";
 
 function HomeRoute() {
   return (
-    <div>
+    <div className="flex text-black w-full h-full ">
+      <div className="w-[25%] bg-white h-full">
       <Sidebar />
+      </div>
+      <div className=" bg-slate-100 w-[75%] h-full ">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
@@ -31,6 +34,7 @@ function HomeRoute() {
         <Route exact path="/viewproject/:projectId" element={<ViewProject />} />
         {/* <Route path="/GraphRender" element={<GraphRender />} /> */}
       </Routes>
+    </div>
     </div>
   );
 }
