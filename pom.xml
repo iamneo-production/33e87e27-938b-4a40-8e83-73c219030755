@@ -12,8 +12,8 @@
         <sonar.sources>null</sonar.sources>
         <sonar.tests>null</sonar.tests>
 
-        <sonar.sources>springapp/src/main</sonar.sources>
-        <sonar.tests>springapp/src/test</sonar.tests>
+        <sonar.sources>null</sonar.sources>
+        <sonar.tests>null</sonar.tests>
 
         <sonar.java.binaries>target</sonar.java.binaries>
     </properties>
