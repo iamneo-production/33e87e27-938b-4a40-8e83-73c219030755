@@ -11,7 +11,12 @@ import Chat from "../Pages/Chat.js";
 import Logout from "../Pages/Logout.js";
 import ListProjects from "../components/pages/listProjects";
 import GraphRender from '../components/chart1/GraphRender';
-
+//import MyTaskApp from '../components/Tasks/MyTaskApp';
+import Board from '../components/Tasks/Board/Board';
+import Pages from '../components/Tasks/Pages/Pages';
+import AddTasks from '../components/Tasks/Tasks/AddTasks';
+import EditTasks from '../components/Tasks/Tasks/EditTasks';
+import ViewTasks from '../components/Tasks/Tasks/ViewTasks';
 function HomeRoute() {
   return (
     <div>
@@ -21,7 +26,10 @@ function HomeRoute() {
           <Route path="/" element={<Home />} />      
           <Route path="/home" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/mytasks" element={<MyTasks />} />
+          <Route path="/mytasks" element={<><Board/><Pages/></>}/>
+          <Route exact path="/addtask" element={<AddTasks/>}/>
+          <Route exact path="/edittask/:id" element={<EditTasks/>}/>
+          <Route exact path="/viewtask/:id" element={<ViewTasks/>}/>
           <Route path="/reports" element={<Reports />} />
           <Route path="/profile" element={<Logindetails />} />
           <Route path="/chat" element={<Chat />} />

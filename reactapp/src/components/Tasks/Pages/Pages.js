@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
-
-
+import './Pages.css'
 export default function Pages() {
 
   const [tasks,setTasks]=useState([])
@@ -15,22 +14,33 @@ export default function Pages() {
   },[]);
 
   const loadUsers=async()=>{
-    const result=await axios.get("http://localhost:8080/tasks")
-    setTasks(result.data)
+    console.log("abc")
+    const token=localStorage.getItem("AuthToken")
+    console.log(token)
+    const result=await axios.get("http://localhost:8080/mapmytasks/mytasks" , {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("AuthToken")
+      }
+    })//GET METHOD 
+    console.log(result,"iam result")
+    setTasks(result.data) 
   }
 
   const deleteTask=async(id)=>{
-    await axios.delete(`http://localhost:8080/task/${id}`)
+    await axios.delete(`http://localhost:8080/mapmytasks/task/${id}`)
     loadUsers()
   }
+
   return (
-    <div className='Container'>
+    
+    <div className='ml-56 Container'>
         <div className='py-4'>
         <table class="table table-striped border shadow">
   <thead>
     <tr>
-      <th scope="col">ID</th>
+      <th scope="col">S.NO</th>
       <th scope="col">TASK NAME</th>
+      <th scope="col">TASK ID</th>
       <th scope="col">PROJECT NAME</th>
       <th scope="col">STATUS</th>
       <th scope="col">PROGRESS(%)</th>
@@ -51,6 +61,7 @@ export default function Pages() {
           <th scope="row" key={index}>{index+1}</th>
           {/*<td>{task.id}</td>*/}
           <td>{task.taskname}</td>
+          <td>{task.taskid}</td>
           <td>{task.projectname}</td>
           <td>{task.status}</td>
           <td>{task.percentagecompleted}</td>
@@ -59,16 +70,16 @@ export default function Pages() {
           <td></td>
           <td></td>
           
-          <Link className='btn btn-info mx-3 bg-info p-1'
-          to={`/viewuser/${task.id}`}>View Task</Link>
+          <Link className='btn btn-outline-primary mx-4 my-4'
+          to={`/viewtask/${task.id}`}>View</Link>
          
-          <Link className='btn btn-warning mx-3 bg-warning p-1'
+          <Link className='btn btn-primary mx-4 my-4'
           to={`/edittask/${task.id}`}
-          >Edit Task</Link>
+          >Edit</Link>
 
-          <button className='btn btn-danger-400 mx-3 bg-danger p-1 '
+          <button className='btn btn-primary mx-4 my-4'
           onClick={()=>deleteTask(task.id)}
-          >Delete Task</button>
+          >Delete</button>
          {/* <button type="button mx-2 data-bs-theme=dark" class="btn-close" aria-label="Close"></button/>*/}
           </tr>
 

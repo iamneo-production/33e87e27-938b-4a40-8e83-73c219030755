@@ -19,12 +19,12 @@ public class SecurityConfiguration {
     private final AuthenticationProvider authenticationProvider;
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .antMatchers("/api/**", "/tasks/**", "/profile/**", "/projects/**")
+                .antMatchers("/api/**", "/tasks/**", "/profile/**", "/projects/**","/mapmytasks/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()

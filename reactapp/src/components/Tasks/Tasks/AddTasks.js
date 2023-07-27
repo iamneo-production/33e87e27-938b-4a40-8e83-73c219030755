@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+    
 
 export default function AddTasks() {
     let navigate=useNavigate()
@@ -8,25 +9,34 @@ export default function AddTasks() {
     const [task,setTask]=useState({
         
         taskname:"",
-        projectname:"",
+        taskid:"",
+        projectname:"", 
         status:"",
         percentagecompleted:"",
         date:"",
         notes:"",
     });
 
-    const { taskname,projectname,status,percentagecompleted,date,notes} = task;
+    const { taskname,taskid,projectname,status,percentagecompleted,date,notes} = task;
     
     const onInputChange = (e) => {
         setTask({...task,[e.target.name]:e.target.value})};
  
         const onSubmit=async(e)=>{
             e.preventDefault();
-            await axios.post("http://localhost:8080/task",task)
-            navigate("/")
+            const token=localStorage.getItem("AuthToken")
+             console.log(token)
+            console.log(" i ampost")
+            await axios.post("http://localhost:8080/mapmytasks/task",task, {
+                headers: {
+                  Authorization: "Bearer " + localStorage.getItem("AuthToken")
+                }
+              })//UPDATE TASK
+            navigate("/mytasks")
         }
 
   return (
+    
     <div className='container'>
        <div className='row'>
           <div className="col-md-5 offset-md-3 border rounded p-4 mt-2 shadow">
@@ -59,6 +69,20 @@ export default function AddTasks() {
                 onChange={(e)=>onInputChange(e)}/>
                 </div>
 
+
+                <div className='mb-3'>
+                <label htmlFor="TASK ID" className='form-label'>
+                TASK ID
+                </label>
+                <input
+                type={'text'}
+                className="form-control"
+                placeholder="Enter Task ID"
+                name="taskid"
+                value={taskid}
+                onChange={(e)=>onInputChange(e)}/>
+                </div>
+
                 <div className='mb-3'>
                 <label htmlFor="PROJECT NAME" className='form-label'>
                 PROJECT NAME
@@ -72,37 +96,54 @@ export default function AddTasks() {
                 onChange={(e)=>onInputChange(e)}/>
                 </div>
 
-                <div className='mb-3'>
+                {/*<div className='mb-3'>
                 <label htmlFor="Status" className='form-label'>
                     STATUS
                 </label>
                 <input
                 type={'text'}
+                 
                 className="form-control"
                 placeholder="Enter Task status"
                 name="status"
                 value={status}
-                onChange={(e)=>onInputChange(e)}/></div>
+            onChange={(e)=>onInputChange(e)}/></div>*/}
                 
                 <div className='mb-3'>
-                <label htmlFor="PROGRESS(%)" className='form-label'>
-                    PROGRESS
+                <label htmlFor="Status" className='form-label'>
+                    STATUS
                 </label>
-                <input
-                type={'text'}
-                className="form-control"
-                placeholder="Enter Progress Percentage"
-                name="percentagecompleted"
-                value={percentagecompleted}
-                onChange={(e)=>onInputChange(e)}/>
+                 <select class="form-select" aria-label="Default select example" 
+                  name="status" value={status} onChange={(e) => onInputChange(e)}>
+                 <option selected>Select the Status</option>
+                 <option value="To Do">To Do</option>
+                 <option value="In Progress">In Progress</option>
+                 <option value="Pending">Pending</option>
+                 <option value="Completed">Completed</option>  </select>
+                 </div>
+                
+                 <div class="mb-3">
+                 <label htmlFor="PROGRESS(%)" className="form-label">
+                 PROGRESS
+                 </label>
+                 <input
+                 type="text"
+                 className="form-control"
+                 placeholder="Enter Progress Percentage"
+                 name="percentagecompleted"
+                 value={percentagecompleted}
+                 onChange={(e) => onInputChange(e)}
+                />
                 </div>
+          
+                 
 
                 <div className='mb-3'>
                 <label htmlFor="DATE" className='form-label'>
                     DUE DATE
                 </label>
                 <input
-                type={'text'}
+                type="date"
                 className="form-control"
                 placeholder="Enter Due date"
                 name="date"
@@ -123,8 +164,8 @@ export default function AddTasks() {
                 onChange={(e)=>onInputChange(e)}/>
                 </div>
                 
-                <button type="submit" className="btn btn-outline-primary" to="/">Submit</button>
-                <Link className="btn btn-outline-danger mx-2" to ="/">Cancel</Link>
+                <button type="submit" className="btn btn-outline-primary" to="/mytasks">Submit</button>
+                <Link className="btn btn-outline-danger mx-2" to ="/mytasks">Cancel</Link>
                 </form>
                 </div>
             </div>

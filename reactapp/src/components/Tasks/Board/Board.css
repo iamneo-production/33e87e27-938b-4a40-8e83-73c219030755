@@ -1,0 +1,13 @@
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  }
+  .navbar-toggler {
+    border: none;
+    background: transparent;
+  }
+  .navbar-toggler-icon {
+    color: #fff;
+  }
+ 
