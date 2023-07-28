@@ -64,7 +64,7 @@ const Home = ({ userId }) => {
   }, []);
 
   return (
-    <div className='ml-56'>
+    <div>
       <div className='welcome-message'><div className='fs-1'><i><b>PROJECT MANAGEMENT TOOL</b></i></div>
         <div className='fs-1'>Hello, {firstname}!</div>
         <div className='user-id'>User ID: {loggedInUserId}</div>

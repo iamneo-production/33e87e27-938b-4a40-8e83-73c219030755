@@ -3,7 +3,7 @@ import axios from "axios";
 import { useRef, useState } from "react";
 
 const Createproject = ({ form, viewprojects }) => {
-  axios.defaults.baseURL = "http://localhost:8081";
+  axios.defaults.baseURL = "http://localhost:8080";
 
   const projectNameRef = useRef("");
   const projectDescRef = useRef("");
@@ -37,7 +37,7 @@ const Createproject = ({ form, viewprojects }) => {
     console.log(data, projectDetails);
 
     await axios
-      .post("/api/projects", data)
+      .post("/projects", data)
       .then((response) => {
         setProjectDetails({
           projectName: "",
@@ -56,7 +56,7 @@ const Createproject = ({ form, viewprojects }) => {
 
   return (
     <div className="h-full w-full">
-      <div className=" h-full w-full flex flex-col items-center gap-10  text-black">
+      <div className=" h-full w-full flex flex-col items-center  text-black">
         <h2 className="w-full text-[30px] font-bold flex justify-center items-center uppercase font-poppins h-[100px] ">
           Create Project
         </h2>

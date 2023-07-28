@@ -17,10 +17,10 @@ import ViewProject from "../components/ProjectComponents/ViewProject";
 function HomeRoute() {
   return (
     <div className="flex text-black w-full h-full ">
-      <div className="w-[25%] bg-white h-full">
+      <div className="w-[20%] bg-white h-full">
       <Sidebar />
       </div>
-      <div className=" bg-slate-100 w-[75%] h-full ">
+      <div className=" bg-slate-100 w-full h-full ">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
