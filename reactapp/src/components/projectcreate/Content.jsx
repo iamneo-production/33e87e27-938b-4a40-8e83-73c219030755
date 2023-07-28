@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Content = ({form , viewprojects}) => {
   const func1=()=>{
@@ -30,11 +31,13 @@ const Content = ({form , viewprojects}) => {
                 <h2 className='w-full h-[70px] uppercase  bg-black flex justify-center items-center font-poppins '>
                     View Projects
                 </h2>
-              <span className='absolute bg-white h-10 w-10 rounded-full flex justify-center items-center text-black bottom-10 left-[42%] hover:scale-125 cursor-pointer'
-              onClick={func2}
-              >
-                V
-              </span>
+              <Link 
+            to="/projectsview" 
+            className="absolute bg-white h-10 w-10 rounded-full flex justify-center items-center text-black bottom-10 left-[42%] hover:scale-125 cursor-pointer"
+            onClick={func2}
+          >
+            ❖
+          </Link>
             </div>
         </div>
 

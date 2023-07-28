@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 
-export default function Projects() {
+export default function ProjectsView() {
   const [project, setProjects] = useState([]);
 
   useEffect(() => {
@@ -73,6 +73,9 @@ export default function Projects() {
             ))}
           </tbody>
         </table>
+        <Link className="btn btn-secondary" to="/projects">
+          Back
+        </Link>
       </div>
     </div>
   );
