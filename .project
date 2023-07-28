@@ -22,12 +22,98 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1683734698773</id>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+			<id>1690189847219</id>
+=======
+			<id>1683619310172</id>
+>>>>>>> Project-Workspace-anjanisree18
+=======
+			<id>1683619310172</id>
+=======
+			<id>1690189847219</id>
+>>>>>>> 4ae5bcdc4d1582736f968ffa0e3282b1544d384a
+>>>>>>> Project-Workspace-anjanisree18
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+			<id>1686723366855</id>
+=======
+<<<<<<< HEAD
+			<id>1688283020636</id>
+=======
+			<id>1688131228370</id>
+>>>>>>> 0f4b1ee0c91334f66188ea59c8cc82941f2bd995
+>>>>>>> 2a941ae3e5929a55bd65d942812b183b97f9681f
+=======
+			<id>1687764205866</id>
+>>>>>>> b6bab21568813621ac91284e3346c580f4553785
+=======
+=======
+			<id>1688470684898</id>
+=======
+<<<<<<< HEAD
+>>>>>>> 37b25de5f0c394764ee1a7941a0c7952fb7e68f3
+			<id>1688030830263</id>
+=======
+<<<<<<< HEAD
+			<id>1688462825807</id>
+=======
+			<id>1687764205866</id>
+>>>>>>> 196b5810615d7c8bcdda0bfd580c7076bd5005d2
+>>>>>>> aba55e393b2f0dac96e7c9cfe75a6f2d10e6f6b6
+<<<<<<< HEAD
+>>>>>>> 57d3d108ab00c5ad0595bbcf6189e016f965d20e
+=======
+>>>>>>> 3cf42c4b1e0c0fde5a87b83976c0bb1c4b0ee65c
+>>>>>>> 37b25de5f0c394764ee1a7941a0c7952fb7e68f3
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 8bea9adb2f25e97410c8effc6567e4ae0a9feb69
+=======
+>>>>>>> 24d62ad9353b8d7b209c641659d109c7395ef956
+>>>>>>> Project-Workspace-anjanisree18
+=======
+>>>>>>> 24d62ad9353b8d7b209c641659d109c7395ef956
+=======
+>>>>>>> 8bea9adb2f25e97410c8effc6567e4ae0a9feb69
+>>>>>>> 4ae5bcdc4d1582736f968ffa0e3282b1544d384a
+>>>>>>> Project-Workspace-anjanisree18
 			<name></name>
 			<type>30</type>
 			<matcher>
 				<id>org.eclipse.core.resources.regexFilterMatcher</id>
+<<<<<<< HEAD
 				<arguments>node_modules|.git|__CREATED_BY_JAVA_LANGUAGE_SERVER__</arguments>
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+				<arguments>node_modules|.git|__CREATED_BY_JAVA_LANGUAGE_SERVER__</arguments>
+=======
+<<<<<<< HEAD
+				<arguments>node_modules|.git|__CREATED_BY_JAVA_LANGUAGE_SERVER__</arguments>
+=======
+				<arguments>node_modules|\.git|__CREATED_BY_JAVA_LANGUAGE_SERVER__</arguments>
+>>>>>>> 0f4b1ee0c91334f66188ea59c8cc82941f2bd995
+>>>>>>> 2a941ae3e5929a55bd65d942812b183b97f9681f
+=======
+				<arguments>node_modules|.git|__CREATED_BY_JAVA_LANGUAGE_SERVER__</arguments>
+>>>>>>> b6bab21568813621ac91284e3346c580f4553785
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 8bea9adb2f25e97410c8effc6567e4ae0a9feb69
+=======
+>>>>>>> 24d62ad9353b8d7b209c641659d109c7395ef956
+>>>>>>> Project-Workspace-anjanisree18
+=======
+>>>>>>> 24d62ad9353b8d7b209c641659d109c7395ef956
+=======
+>>>>>>> 8bea9adb2f25e97410c8effc6567e4ae0a9feb69
+>>>>>>> 4ae5bcdc4d1582736f968ffa0e3282b1544d384a
+>>>>>>> Project-Workspace-anjanisree18
 			</matcher>
 		</filter>
 	</filteredResources>
