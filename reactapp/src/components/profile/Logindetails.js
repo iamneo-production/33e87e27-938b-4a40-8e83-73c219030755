@@ -27,7 +27,7 @@ const Logindetails = () => {
   }, []);
 
   return (
-    <div className='ml-56'>
+    <div>
       {loggedInUserId ? (
         <ProfilePage userId={loggedInUserId} />
       ) : (

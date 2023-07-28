@@ -28,8 +28,10 @@ const  FirstGraph =()=> {
 
         <React.Fragment>
             <div>
-                <h3 style={{fontSize : "25px"}}>INDIVIDUAL TASK PROGRESS CHART</h3>
+                <h3 style={{fontSize : "25px", paddingLeft: "317px", fontWeight: "bolder"}}>INDIVIDUAL TASK PROGRESS CHART</h3>
+                <br></br>
       <Chart options={{
+        theme: { mode: "dark" },
         chart: {
           id: 'apexchart-example'
         },
@@ -40,7 +42,7 @@ const  FirstGraph =()=> {
       series={[{
         name: 'Completion Percentage ',
         data: data
-      }]} type="line" width={560} height={250} />
+      }]} type="line" width={1000} height={250} />
       </div>
 
 </React.Fragment>

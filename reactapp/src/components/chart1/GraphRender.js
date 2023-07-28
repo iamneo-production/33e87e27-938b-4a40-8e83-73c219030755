@@ -1,3 +1,4 @@
+
 import './Graphrender.css';
 import FirstGraph from './FirstGraph';
 import Navbar from './Navbar';
@@ -13,8 +14,10 @@ function GraphRender() {
       
       <div className="GraphRender">
         
-        <br></br>
+        
         <FirstGraph/>
+        </div>
+        <div>
         <Barchart/>
       </div>
       </div>
