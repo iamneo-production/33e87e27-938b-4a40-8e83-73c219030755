@@ -14,16 +14,8 @@ export default function Pages() {
   },[]);
 
   const loadUsers=async()=>{
-    console.log("abc")
-    const token=localStorage.getItem("AuthToken")
-    console.log(token)
-    const result=await axios.get("http://localhost:8080/mapmytasks/mytasks" , {
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("AuthToken")
-      }
-    })//GET METHOD 
-    console.log(result,"iam result")
-    setTasks(result.data) 
+    const result=await axios.get("http://localhost:8080/mapmytasks/mytasks")//GET METHOD URL CREATE NEW TASK STATUS
+    setTasks(result.data)
   }
 
   const deleteTask=async(id)=>{
@@ -32,7 +24,6 @@ export default function Pages() {
   }
 
   return (
-    
     <div className='ml-56 Container'>
         <div className='py-4'>
         <table class="table table-striped border shadow">
@@ -59,7 +50,7 @@ export default function Pages() {
       tasks.map((task,index)=>(
          <tr>
           <th scope="row" key={index}>{index+1}</th>
-          {/*<td>{task.id}</td>*/}
+          
           <td>{task.taskname}</td>
           <td>{task.taskid}</td>
           <td>{task.projectname}</td>
@@ -80,7 +71,7 @@ export default function Pages() {
           <button className='btn btn-primary mx-4 my-4'
           onClick={()=>deleteTask(task.id)}
           >Delete</button>
-         {/* <button type="button mx-2 data-bs-theme=dark" class="btn-close" aria-label="Close"></button/>*/}
+         
           </tr>
 
       ))

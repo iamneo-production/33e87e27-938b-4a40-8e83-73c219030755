@@ -29,10 +29,8 @@ const loadUsers=async() => {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("AuthToken")
         }
-      })// GET TASK BY ID
-    // result.data.percentagecompleted=result.data.percentagecompleted.toString();
+      })
     setTask(result.data)
-    //console.log(result.data,'iam result  ')
 
 }
 return (  

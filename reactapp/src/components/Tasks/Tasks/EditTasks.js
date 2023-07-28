@@ -7,7 +7,7 @@ export default function EditTasks() {
     let navigate=useNavigate()
 
     const {id}=useParams()
-    //console.log(id,'iam id2')
+   
     const [task,setTask]=useState({
         
         taskname:"",
@@ -52,20 +52,7 @@ export default function EditTasks() {
        <div className='row'>
           <div className="col-md-5 offset-md-3 border rounded p-4 mt-2 shadow">
             <h2 className="text-center m-4">Edit Task</h2>
-             {/*<form onSubmit={(e)=>onSubmit(e)}>
-              <div className='mb-3'>
-                <label htmlFor="TASK ID" className='form-label'>
-                    TASK ID
-                </label>
-
-                    <input
-                    type={"text"}
-                    className="form-control"
-                    placeholder="Enter Task ID"
-                    name="id"
-                    value={id}
-                    onChange={(e)=>onInputChange(e)}/>
-                </div>*/}
+             
                 <form onSubmit={(e)=>onSubmit(e)}>
                 <div className='mb-3'>
                 <label htmlFor="TASK NAME" className='form-label'>
