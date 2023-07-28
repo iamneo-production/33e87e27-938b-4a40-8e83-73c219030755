@@ -11,6 +11,8 @@ import Chat from "../Pages/Chat.js";
 import Logout from "../Pages/Logout.js";
 import EditProject from "../components/ProjectComponents/EditProject";
 import ViewProject from "../components/ProjectComponents/ViewProject";
+import ProjectsView from "../components/projectcreate/ProjectsView";
+import AddTasks from "../components/Tasks/Tasks/AddTasks";
 // import GraphRender from "../components/chart1/GraphRender";
 
 
@@ -32,6 +34,8 @@ function HomeRoute() {
         <Route path="/logout" element={<Logout />} />
         <Route exact path="/editproject/:projectId" element={<EditProject />} />
         <Route exact path="/viewproject/:projectId" element={<ViewProject />} />
+        <Route path="/projectsview" element={<ProjectsView />} />
+        <Route path="/addtasks" element={<AddTasks />} />
         {/* <Route path="/GraphRender" element={<GraphRender />} /> */}
       </Routes>
     </div>

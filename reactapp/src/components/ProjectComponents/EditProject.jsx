@@ -28,7 +28,7 @@ export default function EditProject() {
   const onSubmit = async (e) => {
     e.preventDefault();
     await axios.put(`http://localhost:8080/projects/${projectId}`, project);
-    navigate("/Projects");
+    navigate("/projectsview");
   };
 
   const loadProjects = async () => {
@@ -100,7 +100,7 @@ export default function EditProject() {
             <button type="submit" className="btn btn-outline-primary">
               Update
             </button>
-            <Link className="btn btn-outline-danger mx-2" to="/Projects">
+            <Link className="btn btn-outline-danger mx-2" to="/projectsview">
               Cancel
             </Link>
           </form>
