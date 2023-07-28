@@ -7,4 +7,5 @@ public interface TaskService {
     Task createTask(Task task);
     Task updateTask(Long id, Task taskDetails);
     void deleteTask(Long id);
+    int getTotalTaskCount();
 }

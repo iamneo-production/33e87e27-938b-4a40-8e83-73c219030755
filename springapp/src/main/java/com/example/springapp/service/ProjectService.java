@@ -19,4 +19,6 @@ public interface ProjectService {
     List<Task> getTaskByProjectId(Long id);
 
 	String createTasksByProjectId(Long id, Task tasks);
+    
+    int getTotalProjectCount();
 }
