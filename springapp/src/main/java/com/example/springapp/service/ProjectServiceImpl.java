@@ -27,7 +27,10 @@ public class ProjectServiceImpl implements ProjectService {
     public List<Project> getAllProjects() {
         return projectRepository.findAll();
     }
-
+    @Override
+    public int getTotalProjectCount() {
+        return getAllProjects().size();
+    }
     @Override
     public Project createProject(Project project) {
         return projectRepository.save(project);
