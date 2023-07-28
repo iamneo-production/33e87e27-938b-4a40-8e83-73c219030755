@@ -55,4 +55,8 @@ public class TaskServiceImpl implements TaskService {
         taskRepository.deleteById(id);
     }
 
+    @Override
+    public int getTotalTaskCount() {
+        return getAllTasks().size();
+    }
 }
