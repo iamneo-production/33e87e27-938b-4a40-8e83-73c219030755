@@ -1,130 +1,105 @@
 package com.example.springapp.model;
-
-import java.time.LocalDate;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 public class Task {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long taskId;
-    private String taskName;
-    private String taskDescription;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private String description;
     private String assignedTo;
-    private LocalDate deadline;
     private String priority;
+    private String deadline;
     private String status;
 
-    @ManyToOne(fetch=FetchType.LAZY, optional=false)
-    @JoinColumn(name = "projectid", nullable = false)
-    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "project_id")
     private Project project;
+
+    // Constructors, getters, and setters
 
     public Task() {
     }
 
-    public Task(Long taskId, String taskName, String taskDescription, String assignedTo, LocalDate deadline,
-            String priority, String status, Project project) {
-        this.taskId = taskId;
-        this.taskName = taskName;
-        this.taskDescription = taskDescription;
+    public Task(Long taskId, String name, String description, String assignedTo, String priority, String deadline, String status) {
+        this.id = taskId;
+        this.name = name;
+        this.description = description;
         this.assignedTo = assignedTo;
-        this.deadline = deadline;
         this.priority = priority;
+        this.deadline = deadline;
         this.status = status;
-        this.project = project;
     }
 
-    public Long getTaskId() {
-        return taskId;
+    // Getters and setters
+
+    public Long getId() {
+        return id;
     }
 
-
-    public void setTaskId(Long taskId) {
-        this.taskId = taskId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-
-    public String getTaskName() {
-        return taskName;
+    public String getName() {
+        return name;
     }
 
-
-    public void setTaskName(String taskName) {
-        this.taskName = taskName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-
-    public String getTaskDescription() {
-        return taskDescription;
+    public String getDescription() {
+        return description;
     }
 
-
-    public void setTaskDescription(String taskDescription) {
-        this.taskDescription = taskDescription;
+    public void setDescription(String description) {
+        this.description = description;
     }
-
 
     public String getAssignedTo() {
         return assignedTo;
     }
 
-
     public void setAssignedTo(String assignedTo) {
         this.assignedTo = assignedTo;
     }
-
-
-    public LocalDate getDeadline() {
-        return deadline;
-    }
-
-
-    public void setDeadline(LocalDate deadline) {
-        this.deadline = deadline;
-    }
-
 
     public String getPriority() {
         return priority;
     }
 
-
     public void setPriority(String priority) {
         this.priority = priority;
     }
 
+    public String getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(String deadline) {
+        this.deadline = deadline;
+    }
 
     public String getStatus() {
         return status;
     }
 
-
     public void setStatus(String status) {
         this.status = status;
     }
 
-
     public Project getProject() {
-        return project;
-    }
+		return project;
+	}
 
-    public void setProject(Project project) {
-        this.project = project;
-    }
-
-    @Override
-    public String toString() {
-        return "Task [id=" + taskId + ", taskName=" + taskName + ", taskDescription=" + taskDescription + ", assignedTo="
-                + assignedTo + ", deadline=" + deadline + ", priority=" + priority + ", status=" + status + ", project="
-                + project + "]";
-    }  
+	public void setProject(Project project) {
+		this.project = project;
+	}
 }

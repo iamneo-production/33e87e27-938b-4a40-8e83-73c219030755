@@ -1,6 +1,3 @@
 {
-    "java.project.sourcePaths": [
-        "junit/test/java",
-        "springapp/src/main/java/com/example/springapp"
-    ]
+    "java.configuration.updateBuildConfiguration": "automatic"
 }
