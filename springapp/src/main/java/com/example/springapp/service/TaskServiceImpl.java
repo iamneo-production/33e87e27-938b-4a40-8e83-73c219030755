@@ -38,7 +38,6 @@ public class TaskServiceImpl implements TaskService {
 
         if (task != null) {
             task.setId(taskDetails.getId());
-            task.setProjectId(taskDetails.getProjectId());
             task.setName(taskDetails.getName());
             task.setDescription(taskDetails.getDescription());
             task.setAssignedTo(taskDetails.getAssignedTo());
@@ -56,4 +55,8 @@ public class TaskServiceImpl implements TaskService {
         taskRepository.deleteById(id);
     }
 
+    @Override
+    public int getTotalTaskCount() {
+        return getAllTasks().size();
+    }
 }
