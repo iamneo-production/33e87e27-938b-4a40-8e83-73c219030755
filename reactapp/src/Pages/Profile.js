@@ -1,7 +1,7 @@
 import React from 'react';
 const Profile = () => {
     return (
-        <div className='ml-56'>
+        <div>
             <h1>Profile page</h1>
         </div>
     );

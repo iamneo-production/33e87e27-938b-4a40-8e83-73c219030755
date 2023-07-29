@@ -16,7 +16,7 @@ export default function AppRoute() {
         }
       }, [user]);
   return (
-    <>
+    <div className="w-screen h-screen fixed">
       {
         isAuthenticated ? (
           <HomeRoute />
@@ -25,7 +25,7 @@ export default function AppRoute() {
         )
       
       }
-    </>
+    </div>
   );
 }
 

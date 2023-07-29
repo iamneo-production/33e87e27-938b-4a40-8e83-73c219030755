@@ -10,9 +10,9 @@ const Logout = () => {
         }
       }, [user]);
     return (
-        <div className='ml-56'>
-            <h1 className='ml-40 text-white'>Logout page</h1>
-            <button onClick={()=>{setUser(false)}}  className='btn btn-danger'>logout</button>
+        <div>
+            <h1 className='mt-5 text-center text-black'>Are you sure want to Logout this page?<br></br><br></br>
+            <button onClick={()=>{setUser(false)}}  className='btn btn-danger text-center'>logout</button></h1>
             
         </div>
     );
