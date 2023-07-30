@@ -1,6 +1,5 @@
 package com.example.springapp.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -11,27 +10,23 @@ import java.util.List;
 public class Project {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long projectId;
 	private String projectName;
 	private String projectDescription;
-//	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-
 	private LocalDate projectStartDate;
-//	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private LocalDate projectEndDate;
 
 	@JsonIgnoreProperties("project")
 	@OneToMany(mappedBy = "project",cascade = CascadeType.ALL)
 	private List<Task> taskList;
-
-
-	public long getId() {
-		return id;
+	
+	public long getProjectId() {
+		return projectId;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setProjectId(long projectId) {
+		this.projectId = projectId;
 	}
 
 	public String getProjectName() {
@@ -78,7 +73,7 @@ public class Project {
 	public Project(long projectId, String projectName, String projectDescription, LocalDate projectStartDate,
 			LocalDate projectEndDate, List<Task> taskList) {
 		super();
-		this.id = projectId;
+		this.projectId = projectId;
 		this.projectName = projectName;
 		this.projectDescription = projectDescription;
 		this.projectStartDate = projectStartDate;
@@ -92,12 +87,11 @@ public class Project {
 
 	@Override
 	public String toString() {
-		return "Project [projectId=" + id + ", projectName=" + projectName + ", projectDescription="
+		return "Project [projectId=" + projectId + ", projectName=" + projectName + ", projectDescription="
 				+ projectDescription + ", projectStartDate=" + projectStartDate + ", projectEndDate=" + projectEndDate
 				+ ", taskList=" + taskList + "]";
 	}
 	
 	
 	
-
 }
