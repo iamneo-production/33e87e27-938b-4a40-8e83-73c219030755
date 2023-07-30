@@ -52,10 +52,10 @@ export default function ViewProject() {
               </ul>
             </div>
           </div>
-          <Link className="btn btn-primary my-2" to="/Projects">
+          <Link className="btn btn-primary my-2" to="/projectsview">
             Back to Projects
           </Link>
-          <Link className="btn btn-primary mx-2" to="/">
+          <Link className="btn btn-primary mx-2" to="/addtasks">
             Add Task
           </Link>
         </div>
