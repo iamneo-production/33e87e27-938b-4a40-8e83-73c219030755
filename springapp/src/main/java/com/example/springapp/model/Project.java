@@ -11,8 +11,8 @@ import java.util.List;
 public class Project {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long projectId;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
 	private String projectName;
 	private String projectDescription;
 //	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
@@ -24,13 +24,14 @@ public class Project {
 	@JsonIgnoreProperties("project")
 	@OneToMany(mappedBy = "project",cascade = CascadeType.ALL)
 	private List<Task> taskList;
-	
-	public long getProjectId() {
-		return projectId;
+
+
+	public long getId() {
+		return id;
 	}
 
-	public void setProjectId(long projectId) {
-		this.projectId = projectId;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getProjectName() {
@@ -77,7 +78,7 @@ public class Project {
 	public Project(long projectId, String projectName, String projectDescription, LocalDate projectStartDate,
 			LocalDate projectEndDate, List<Task> taskList) {
 		super();
-		this.projectId = projectId;
+		this.id = projectId;
 		this.projectName = projectName;
 		this.projectDescription = projectDescription;
 		this.projectStartDate = projectStartDate;
@@ -91,7 +92,7 @@ public class Project {
 
 	@Override
 	public String toString() {
-		return "Project [projectId=" + projectId + ", projectName=" + projectName + ", projectDescription="
+		return "Project [projectId=" + id + ", projectName=" + projectName + ", projectDescription="
 				+ projectDescription + ", projectStartDate=" + projectStartDate + ", projectEndDate=" + projectEndDate
 				+ ", taskList=" + taskList + "]";
 	}
