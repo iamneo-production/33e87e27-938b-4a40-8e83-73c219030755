@@ -27,6 +27,8 @@ const Createproject = ({ form, viewprojects }) => {
     viewprojects(false);
   };
   const handleSaveProject = async (event) => {
+    form(false);
+    viewprojects(false);
     event.preventDefault();
     let data = {
       projectName: projectNameRef.current.value,
